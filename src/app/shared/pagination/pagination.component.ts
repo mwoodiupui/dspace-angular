@@ -48,6 +48,7 @@ import { RSSComponent } from '../rss-feed/rss.component';
 import { HostWindowState } from '../search/host-window.reducer';
 import { EnumKeysPipe } from '../utils/enum-keys-pipe';
 import { PaginationComponentOptions } from './pagination-component-options.model';
+import { UUIDService } from 'src/app/core/shared/uuid.service';
 
 /**
  * The default pagination controls component.
@@ -224,6 +225,12 @@ export class PaginationComponent implements OnDestroy, OnInit {
   private subs: Subscription[] = [];
 
   /**
+   * Unique element 'id' property value, in case this class is used multiply
+   * in one page.
+   */
+  public elementId: string;
+
+  /**
    * If showPaginator is set to true, emit when the previous button is clicked
    */
   @Output() prev = new EventEmitter<boolean>();
@@ -232,6 +239,7 @@ export class PaginationComponent implements OnDestroy, OnInit {
    * If showPaginator is set to true, emit when the next button is clicked
    */
   @Output() next = new EventEmitter<boolean>();
+
   /**
    * Method provided by Angular. Invoked after the constructor.
    */
@@ -285,16 +293,18 @@ export class PaginationComponent implements OnDestroy, OnInit {
   /**
    * @param cdRef
    *    ChangeDetectorRef is a singleton service provided by Angular.
-   * @param route
-   *    Route is a singleton service provided by Angular.
-   * @param router
-   *    Router is a singleton service provided by Angular.
+   * @param paginationService
+   *    the PaginationService singleton.
    * @param hostWindowService
    *    the HostWindowService singleton.
+   * @param uuidService
+   *    the UUIDService singleton.
    */
   constructor(private cdRef: ChangeDetectorRef,
               private paginationService: PaginationService,
-              public hostWindowService: HostWindowService) {
+              public hostWindowService: HostWindowService,
+              private uuidService: UUIDService) {
+    this.elementId = uuidService.generate();
   }
 
   /**
