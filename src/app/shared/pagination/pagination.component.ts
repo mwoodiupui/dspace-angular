@@ -30,6 +30,7 @@ import {
   map,
   take,
 } from 'rxjs/operators';
+import { UUIDService } from 'src/app/core/shared/uuid.service';
 
 import {
   SortDirection,
@@ -48,7 +49,6 @@ import { RSSComponent } from '../rss-feed/rss.component';
 import { HostWindowState } from '../search/host-window.reducer';
 import { EnumKeysPipe } from '../utils/enum-keys-pipe';
 import { PaginationComponentOptions } from './pagination-component-options.model';
-import { UUIDService } from 'src/app/core/shared/uuid.service';
 
 /**
  * The default pagination controls component.

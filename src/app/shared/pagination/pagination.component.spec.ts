@@ -28,6 +28,7 @@ import {
 } from '@ngx-translate/core';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BehaviorSubject } from 'rxjs';
+import { UUIDService } from 'src/app/core/shared/uuid.service';
 
 import { storeModuleConfig } from '../../app.reducer';
 import {
@@ -46,7 +47,6 @@ import { createTestComponent } from '../testing/utils.test';
 import { EnumKeysPipe } from '../utils/enum-keys-pipe';
 import { PaginationComponent } from './pagination.component';
 import { PaginationComponentOptions } from './pagination-component-options.model';
-import { UUIDService } from 'src/app/core/shared/uuid.service';
 
 function expectPages(fixture: ComponentFixture<any>, pagesDef: string[]): void {
   const de = fixture.debugElement.query(By.css('.pagination'));
@@ -172,7 +172,7 @@ describe('Pagination component', () => {
           { path: 'home', component: TestComponent },
         ]),
         UUIDService,
-        ],
+      ],
       declarations: [
         PaginationComponent,
         TestComponent,
