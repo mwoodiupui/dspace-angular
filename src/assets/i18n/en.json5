@@ -7213,4 +7213,6 @@
   "item.preview.organization.address.addressLocality": "City",
 
   "item.preview.organization.alternateName": "Alternative name",
+
+  "about.attribution.text": "This repository is built with",
 }

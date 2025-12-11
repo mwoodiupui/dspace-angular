@@ -27,6 +27,7 @@ import { ServerCheckGuard } from '@dspace/core/server-check/server-check.guard';
 import { ACCESS_CONTROL_MODULE_PATH } from './access-control/access-control-routing-paths';
 import { NOTIFICATIONS_MODULE_PATH } from './admin/admin-routing-paths';
 import {
+  ABOUT_PATH,
   ADMIN_MODULE_PATH,
   FORGOT_PASSWORD_PATH,
   HEALTH_PAGE_PATH,
@@ -36,6 +37,7 @@ import {
   WORKFLOW_ITEM_MODULE_PATH,
 } from './app-routing-paths';
 import { notAuthenticatedGuard } from './core/auth/not-authenticated.guard';
+import { ThemedAboutComponent } from 'src/app/about/themed-about-page.component';
 import { ThemedForbiddenComponent } from './forbidden/themed-forbidden.component';
 import { homePageResolver } from './home-page/home-page.resolver';
 import { provideSuggestionNotificationsState } from './notifications/provide-suggestion-notifications-state';
@@ -48,6 +50,7 @@ import { provideSubmissionState } from './submission/provide-submission-state';
 import { SUGGESTION_MODULE_PATH } from './suggestions-page/suggestions-page-routing-paths';
 
 export const APP_ROUTES: Route[] = [
+  { path: ABOUT_PATH, component: ThemedAboutComponent },
   { path: INTERNAL_SERVER_ERROR, component: ThemedPageInternalServerErrorComponent },
   { path: ERROR_PAGE, component: ThemedPageErrorComponent },
   {

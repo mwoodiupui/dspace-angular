@@ -1,5 +1,7 @@
 export const COAR_NOTIFY_SUPPORT = 'coar-notify-support';
 
+export const ABOUT_PATH = 'about';
+
 export const ADMIN_MODULE_PATH = 'admin';
 
 export function getAdminModuleRoute() {
